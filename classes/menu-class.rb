@@ -24,8 +24,13 @@ class Menu
     end
 
     def select_show
-        @show_number = gets.chomp.to_i - 1
-        self
+        selection = gets.chomp.to_i
+        if selection <= @user.shows.count
+            @show_number = selection - 1
+            true
+        else
+            false
+        end
     end
 
     def add_show
@@ -44,8 +49,13 @@ class Menu
     end
 
     def select_season
-        @season_number = gets.chomp.to_i - 1
-        self
+        selection = gets.chomp.to_i
+        if selection <= @user.shows[@show_number].seasons.count
+            @season_number = selection - 1
+            true
+        else
+            false
+        end
     end
 
     def add_season
@@ -64,8 +74,13 @@ class Menu
     end
 
     def select_episode
-        @episode_number = gets.chomp.to_i - 1
-        self
+        selection = gets.chomp.to_i
+        if selection <= @user.shows[@show_number].seasons[@season_number].episodes.count
+            @episode_number = selection - 1
+            true
+        else
+            false
+        end
     end
 
     def add_episode

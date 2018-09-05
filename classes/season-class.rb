@@ -4,7 +4,6 @@ class Season
     attr_accessor :season_number, :episodes
 
     def initialize(season_number, episodes = [])
-        # @show = show #the name of the show the season belongs to
         @season_number = season_number #the number of the season in the series
         @episodes = episodes #an array of episode objects
     end

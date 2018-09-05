@@ -16,9 +16,10 @@ rescue => exception
 end
 
 def show_menu(main)
+    show_menu = true
     system "clear"
     puts "Welcome to TV Show Organisor!"
-    while true
+    while show_menu
         puts "Show Menu"
         main.view_shows
         print "Press 1 to view a show, 2 to add a show or 3 to exit: "
@@ -26,14 +27,14 @@ def show_menu(main)
         case choice
         when "1"
             print "Please enter the show number: "
-            main.select_show
-            season_menu(main)
+            if main.select_show
+                season_menu(main)
+            end
         when "2"
             main.add_show
         when "3"
-            break
+            show_menu = false
         else
-            # main.reset_menu
             puts "Invalid Selection. Please try again!"
         end
         system "clear"
@@ -41,7 +42,8 @@ def show_menu(main)
 end
 
 def season_menu(main)
-    while true
+    season_menu = true
+    while season_menu
         system "clear"
         puts "Season Menu"
         main.view_seasons
@@ -50,14 +52,14 @@ def season_menu(main)
         case choice
         when "1"
             print "Please enter the season number: "
-            main.select_season
-            episode_menu(main)
-            break
+            if main.select_season
+                episode_menu(main)
+                season_menu = false
+            end
         when "2"
             main.add_season
         when "3"
-            # main.reset_menu
-            break
+            season_menu = false
         else
             puts "Invalid Selection. Please try again!"
         end
@@ -65,7 +67,8 @@ def season_menu(main)
 end
 
 def episode_menu(main)
-    while true
+    episode_menu = true
+    while episode_menu
         system "clear"
         puts "Episode Menu"
         main.view_episodes
@@ -74,16 +77,19 @@ def episode_menu(main)
         case choice
         when "1"
             print "Please enter the episode number: "
-            main.select_episode.episode_watched
+            if main.select_episode
+                main.episode_watched
+            end
         when "2"
             print "Please enter the episode number: "
-            main.select_episode.episode_not_watched
+            if main.select_episode
+                main.episode_not_watched
+            end
         when "3"
             main.add_episode
         when "4"
-            # main.reset_menu
+            episode_menu = false
             season_menu(main)
-            break
         else
             puts "Invalid Selection. Please try again!"
         end
