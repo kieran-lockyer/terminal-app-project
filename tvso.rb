@@ -19,9 +19,9 @@ def show_menu(main, audio) # Menu to interface with shows. From here you can vie
             ESpeak::Speech.new("Show Menu").speak
         end
         main.view_shows #lists the shows in the user profile
-        print "Press 1 to view a show, 2 to add a show or 3 to exit: "
+        print "Press 1 to view a show, 2 to add a show, 3 to remove a show or 4 to exit: "
         if audio
-            ESpeak::Speech.new("Press 1 to view a show, 2 to add a show or 3 to exit: ").speak
+            ESpeak::Speech.new("Press 1 to view a show, 2 to add a show, 3 to remove a show or 4 to exit: ").speak
         end
         choice = gets.chomp
         case choice
@@ -36,6 +36,14 @@ def show_menu(main, audio) # Menu to interface with shows. From here you can vie
         when "2"
             main.add_show #adds a show object to the user object
         when "3"
+            print "Please enter the show number: "
+            if audio
+                ESpeak::Speech.new("Please enter the show number: ").speak
+            end
+            if main.select_show #sets the array pointer to the index of the show
+                main.remove_show #removes the show from the shows array in user object
+            end
+        when "4"
             show_menu = false # exits the show_menu loop, and exits the function, sending you to line 102 to save data
         else
             puts "Invalid Selection. Please try again!"
@@ -56,9 +64,9 @@ def season_menu(main, audio) # Menu to interface with seasons, view the episodes
             ESpeak::Speech.new("Season Menu").speak
         end
         main.view_seasons #lists the seasons in the show
-        print "Press 1 to view a season, 2 to add a season or 3 to return to 'Show Menu': "
+        print "Press 1 to view a season, 2 to add a season, 3 to remove a season or 4 to return to 'Show Menu': "
         if audio
-            ESpeak::Speech.new("Press 1 to view a season, 2 to add a season or 3 to return to 'Show Menu': ").speak
+            ESpeak::Speech.new("Press 1 to view a season, 2 to add a season, 3 to remove a season or 4 to return to 'Show Menu': ").speak
         end
         choice = gets.chomp
         case choice
@@ -74,6 +82,8 @@ def season_menu(main, audio) # Menu to interface with seasons, view the episodes
         when "2"
             main.add_season #adds a season object to the show object
         when "3"
+            main.remove_season #removes a season object from the show object
+        when "4"
             season_menu = false # sets condition to loop season menu to false, breaking the loop so you don't return to the loop when exiting another menu
         else
             puts "Invalid Selection. Please try again!"
@@ -93,9 +103,9 @@ def episode_menu(main, audio) # Menu to interface with episodes, Mark as watched
             ESpeak::Speech.new("Episode Menu").speak
         end
         main.view_episodes #lists the episodes in season
-        print "Press 1 to mark an episode as watched, 2 to mark an episode as unwatched, 3 to add an episode or 4 to return to 'Season Menu': "
+        print "Press 1 to mark an episode as watched, 2 to mark an episode as unwatched, 3 to add an episode, 4 to remove an episode, or 5 to return to 'Season Menu': "
         if audio
-            ESpeak::Speech.new("Press 1 to mark an episode as watched, 2 to mark an episode as unwatched, 3 to add an episode or 4 to return to 'Season Menu': ").speak
+            ESpeak::Speech.new("Press 1 to mark an episode as watched, 2 to mark an episode as unwatched, 3 to add an episode, 4 to remove an episode, or 5 to return to 'Season Menu': ").speak
         end
         choice = gets.chomp
         case choice
@@ -118,6 +128,8 @@ def episode_menu(main, audio) # Menu to interface with episodes, Mark as watched
         when "3"
             main.add_episode #adds an episode object to the season object
         when "4"
+            main.remove_episode #removes an episode object from the season object
+        when "5"
             episode_menu = false # sets condition to loop episode menu to false, breaking the loop so you don't return to the loop when exiting another menu
             season_menu(main, audio) #returns user to season menu to make further changes to the season
         else

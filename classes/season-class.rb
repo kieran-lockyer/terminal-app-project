@@ -4,7 +4,7 @@ class Season
     attr_accessor :season_number, :episodes, :show
 
     def initialize(show, season_number, episodes = [])
-        @show = show
+        @show = show #name of the show
         @season_number = season_number #the number of the season in the series
         @episodes = episodes #an array of episode objects
     end
@@ -14,7 +14,7 @@ class Season
         puts "Season: #{@season_number}"
         puts
         for episode in @episodes
-            print "Episode Number: #{episode.episode_number} "
+            print "Episode Number: #{episode.episode_number} " #print to keep the "watched/unwatched" on the same line
             if episode.watched
                 puts "- Watched"
             else
@@ -24,8 +24,12 @@ class Season
         puts
     end
 
-    def add_episode
-        @episodes.push(Episode.new(@episodes.count + 1, watched = false))
+    def add_episode #pushes a new episode object to the end of the episodes array, watched set to false by default
+        @episodes.push(Episode.new(@episodes.count + 1))
+    end
+
+    def remove_episode #removes the last episode from the episodes array
+        @episodes.delete_at(@episodes.count - 1)
     end
 end
 

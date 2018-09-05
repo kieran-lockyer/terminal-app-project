@@ -10,7 +10,7 @@ class Show
         @seasons = seasons #an array of season objects
     end
 
-    def list_seasons
+    def list_seasons #lists the seasons in a show along with no. of episodes and no. of unwatched episodes
         puts "#{@show_name}"
         puts
         for season in @seasons
@@ -26,8 +26,12 @@ class Show
         puts
     end
 
-    def add_season
-        @seasons.push(Season.new(@show_name, @seasons.count + 1, episodes = []))
+    def add_season #pushes a new season object to the end of the seasons array.
+        @seasons.push(Season.new(@show_name, @seasons.count + 1))
+    end
+
+    def remove_season #pops a season object off the end of the seasons array.
+        @seasons.delete_at(@seasons.count - 1)
     end
 end
 
