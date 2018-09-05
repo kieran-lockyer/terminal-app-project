@@ -27,7 +27,7 @@ class Show
     end
 
     def add_season
-        @seasons.push(Season.new(@seasons.count + 1, episodes = []))
+        @seasons.push(Season.new(@show_name, @seasons.count + 1, episodes = []))
     end
 end
 

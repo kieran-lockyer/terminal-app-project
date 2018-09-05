@@ -18,11 +18,7 @@ class User
         puts
     end
 
-    def add_show
-        print "Please enter the name of the show you want to add: "
-        show_name = gets.chomp
-        print "Please enter the genre of the show you want to add: "
-        genre = gets.chomp
+    def add_show(show_name, genre)
         @shows.push(Show.new(show_name, genre))
     end
 end

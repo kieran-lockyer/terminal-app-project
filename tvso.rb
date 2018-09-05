@@ -4,102 +4,167 @@ require_relative 'classes/show-class'
 require_relative 'classes/user-class'
 require_relative 'classes/menu-class'
 require 'yaml'
+require 'espeak'
 
-# bb_seasons = [Season.new('Breaking Bad', 1, [Episode.new('Breaking Bad', 1, 1), Episode.new('Breaking Bad', 1, 2)])]
-# sv_seasons = [Season.new('Silicon Valley', 1, [Episode.new('Silicon Valley', 1, 1), Episode.new('Silicon Valley', 1, 2), Episode.new('Silicon Valley', 1, 3), Episode.new('Silicon Valley', 1, 4)])]
-# user = User.new("Test", [Show.new('Silicon Valley', "Comedy", sv_seasons), Show.new("Breaking Bad", 'Drama', bb_seasons)])
-
-begin
-    user = YAML.load(File.read("data.yml"))
-rescue => exception
-    user = User.new("User 1", [])
-end
-
-def show_menu(main)
-    show_menu = true
+def show_menu(main, audio) # Menu to interface with shows. From here you can view shows, add shows or exit.
+    show_menu = true # sets condition to loop show menu to true
     system "clear"
     puts "Welcome to TV Show Organisor!"
-    while show_menu
+    if audio
+        ESpeak::Speech.new("Welcome to TV Show Organisor!").speak
+    end
+    while show_menu # Keeps user in the show menu loop incase they hit a wrong key, will be given another try.
         puts "Show Menu"
-        main.view_shows
+        if audio
+            ESpeak::Speech.new("Show Menu").speak
+        end
+        main.view_shows #lists the shows in the user profile
         print "Press 1 to view a show, 2 to add a show or 3 to exit: "
+        if audio
+            ESpeak::Speech.new("Press 1 to view a show, 2 to add a show or 3 to exit: ").speak
+        end
         choice = gets.chomp
         case choice
         when "1"
             print "Please enter the show number: "
-            if main.select_show
-                season_menu(main)
+            if audio
+                ESpeak::Speech.new("Please enter the show number: ").speak
+            end
+            if main.select_show # sets the menu attribute for show number to the corresponding show number in the show list
+                season_menu(main, audio) # sends the user to the 'Season Menu'
             end
         when "2"
-            main.add_show
+            main.add_show #adds a show object to the user object
         when "3"
-            show_menu = false
+            show_menu = false # exits the show_menu loop, and exits the function, sending you to line 102 to save data
         else
             puts "Invalid Selection. Please try again!"
+            if audio
+                ESpeak::Speech.new("Invalid Selection. Please try again!").speak
+            end
         end
         system "clear"
     end
 end
 
-def season_menu(main)
-    season_menu = true
-    while season_menu
+def season_menu(main, audio) # Menu to interface with seasons, view the episodes in a season or add a season to a show
+    season_menu = true # sets condition to loop season menu to true
+    while season_menu # Keeps user in the season menu loop incase they hit a wrong key, will be given another try.
         system "clear"
         puts "Season Menu"
-        main.view_seasons
+        if audio
+            ESpeak::Speech.new("Season Menu").speak
+        end
+        main.view_seasons #lists the seasons in the show
         print "Press 1 to view a season, 2 to add a season or 3 to return to 'Show Menu': "
+        if audio
+            ESpeak::Speech.new("Press 1 to view a season, 2 to add a season or 3 to return to 'Show Menu': ").speak
+        end
         choice = gets.chomp
         case choice
         when "1"
             print "Please enter the season number: "
-            if main.select_season
-                episode_menu(main)
-                season_menu = false
+            if audio
+                ESpeak::Speech.new("Please enter the season number: ").speak
+            end
+            if main.select_season # sets the menu attribute for season number to the corresponding season number in the season list
+                episode_menu(main, audio) # sends the user to the 'Episode Menu'
+                season_menu = false # sets condition to loop season menu to false, breaking the loop so you don't return to the loop when exiting another menu
             end
         when "2"
-            main.add_season
+            main.add_season #adds a season object to the show object
         when "3"
-            season_menu = false
+            season_menu = false # sets condition to loop season menu to false, breaking the loop so you don't return to the loop when exiting another menu
         else
             puts "Invalid Selection. Please try again!"
+            if audio
+                ESpeak::Speech.new("Invalid Selection. Please try again!").speak
+            end
         end
     end
 end
 
-def episode_menu(main)
-    episode_menu = true
-    while episode_menu
+def episode_menu(main, audio) # Menu to interface with episodes, Mark as watched or unwatched or add an episode to a season
+    episode_menu = true # sets condition to loop episode menu to true
+    while episode_menu # Keeps user in the episode menu loop incase they hit a wrong key, will be given another try.
         system "clear"
         puts "Episode Menu"
-        main.view_episodes
+        if audio
+            ESpeak::Speech.new("Episode Menu").speak
+        end
+        main.view_episodes #lists the episodes in season
         print "Press 1 to mark an episode as watched, 2 to mark an episode as unwatched, 3 to add an episode or 4 to return to 'Season Menu': "
+        if audio
+            ESpeak::Speech.new("Press 1 to mark an episode as watched, 2 to mark an episode as unwatched, 3 to add an episode or 4 to return to 'Season Menu': ").speak
+        end
         choice = gets.chomp
         case choice
         when "1"
             print "Please enter the episode number: "
-            if main.select_episode
-                main.episode_watched
+            if audio
+                ESpeak::Speech.new("Please enter the episode number: ").speak
+            end
+            if main.select_episode # sets the menu attribute for episode number to the corresponding episode number in the episode list
+                main.episode_watched #sets the episode as watched
             end
         when "2"
             print "Please enter the episode number: "
-            if main.select_episode
-                main.episode_not_watched
+            if audio
+                ESpeak::Speech.new("Please enter the episode number: ").speak
+            end
+            if main.select_episode # sets the menu attribute for episode number to the corresponding episode number in the episode list
+                main.episode_not_watched #sets the episode as unwatched
             end
         when "3"
-            main.add_episode
+            main.add_episode #adds an episode object to the season object
         when "4"
-            episode_menu = false
-            season_menu(main)
+            episode_menu = false # sets condition to loop episode menu to false, breaking the loop so you don't return to the loop when exiting another menu
+            season_menu(main, audio) #returns user to season menu to make further changes to the season
         else
             puts "Invalid Selection. Please try again!"
+            if audio
+                ESpeak::Speech.new("Invalid Selection. Please try again!").speak
+            end
         end
     end
 end
 
+# Program Starts Here!!!
+begin
+    user = YAML.load(File.read("data.yml")) # imports data from data.yml file if a file exists, and parses it as a User object which is set to user variable 
+rescue => exception
+    user = User.new("User 1", []) #if data.yml file doesn't exist, creates an new blank User object and assigns it to user variable
+end
 
-main = show_menu(Menu.new(user))
+# a simple loop that allows you to select an audio guide for the app. Utilises the 'espeak' gem.
+while true
+    print "Do you require voice guidance? Please enter 'Y' for yes or 'N' for no: "
+    ESpeak::Speech.new("Do you require voice guidance? Please enter 'Y' for yes or 'N' for no.").speak
+    option = gets.chomp
+    case option
+    when 'Y', 'y'
+        audio = true
+        break
+    when 'N', 'n'
+        audio = false
+        break
+    else
+        puts "Invalid option"
+        ESpeak::Speech.new("Invalid option").speak
+    end
+end
 
-File.open("data.yml", "w") { |file| file.write(user.to_yaml) }
+# On launch, executes the 'Show Menu' function. As you switch menus, the program will 
+# jump to 'Season Menu' function or 'Episode Menu' function
+main = show_menu(Menu.new(user, audio), audio) #user is the object that contains all show, season and episode information as objects.
 
+# When you exit the 'Show Menu' Function, you will pop out here, and the data will be stored in the file below
+File.open("data.yml", "w") { |file| file.write(user.to_yaml) } #converts the user object to yaml format and then written to data.yaml
+
+#The screen is now cleared and a goodbye message is presented before the program terminates.
 system "clear"
 puts "Thanks for using TV Show Organisor"
+if audio
+    ESpeak::Speech.new("Thanks for using TV Show Organisor").speak
+end
+#Program Ends Here

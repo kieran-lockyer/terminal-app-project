@@ -1,14 +1,15 @@
 require_relative '../classes/episode-class'
 
 class Season
-    attr_accessor :season_number, :episodes
+    attr_accessor :season_number, :episodes, :show
 
-    def initialize(season_number, episodes = [])
+    def initialize(show, season_number, episodes = [])
+        @show = show
         @season_number = season_number #the number of the season in the series
         @episodes = episodes #an array of episode objects
     end
 
-    def list_episodes
+    def list_episodes #will puts to the screen a list of the episodes in the season
         puts "#{@show}"
         puts "Season: #{@season_number}"
         puts
