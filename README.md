@@ -71,7 +71,11 @@ The app was designed to take as little input as possible to navigate the menu. E
 - Google Slides
 
 ### Bugs
-No known bugs at this time, please let us know if you find any.
+- No known bugs at this time. If you find any, please let us know
+
+#### Fixed bugs:
+- -- FIXED!!! -- Crashes when user input for selecting shows, seasons or episodes is higher than the number of shows, seasons or episodes that have been added
+- -- FIXED!!! -- Unable to remove seasons, unless an episode has been removed first
 
 ### Future Updates
 - Rename Shows
