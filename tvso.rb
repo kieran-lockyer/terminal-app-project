@@ -9,9 +9,9 @@ require 'espeak'
 def show_menu(main, audio) # Menu to interface with shows. From here you can view shows, add shows or exit.
     show_menu = true # sets condition to loop show menu to true
     system "clear"
-    puts "Welcome to TV Show Organisor!"
+    puts "Welcome to TV Show Organiser!"
     if audio
-        ESpeak::Speech.new("Welcome to TV Show Organisor!").speak
+        ESpeak::Speech.new("Welcome to TV Show Organiser!").speak
     end
     while show_menu # Keeps user in the show menu loop incase they hit a wrong key, will be given another try.
         puts "Show Menu"
@@ -137,6 +137,8 @@ rescue => exception
 end
 
 # a simple loop that allows you to select an audio guide for the app. Utilises the 'espeak' gem.
+system 'clear'
+puts "TV SHOW ORGANISER"
 while true
     print "Do you require voice guidance? Please enter 'Y' for yes or 'N' for no: "
     ESpeak::Speech.new("Do you require voice guidance? Please enter 'Y' for yes or 'N' for no.").speak
@@ -163,8 +165,8 @@ File.open("data.yml", "w") { |file| file.write(user.to_yaml) } #converts the use
 
 #The screen is now cleared and a goodbye message is presented before the program terminates.
 system "clear"
-puts "Thanks for using TV Show Organisor"
+puts "Thanks for using TV Show Organiser"
 if audio
-    ESpeak::Speech.new("Thanks for using TV Show Organisor").speak
+    ESpeak::Speech.new("Thanks for using TV Show Organiser").speak
 end
 #Program Ends Here

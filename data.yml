@@ -17,18 +17,71 @@ shows:
       watched: true
     - !ruby/object:Episode
       episode_number: 3
-      watched: true
+      watched: false
     - !ruby/object:Episode
       episode_number: 4
       watched: false
   - !ruby/object:Season
     show: Breaking Bad
     season_number: 2
-    episodes: []
+    episodes:
+    - !ruby/object:Episode
+      episode_number: 1
+      watched: false
+    - !ruby/object:Episode
+      episode_number: 2
+      watched: false
+    - !ruby/object:Episode
+      episode_number: 3
+      watched: true
+    - !ruby/object:Episode
+      episode_number: 4
+      watched: false
+    - !ruby/object:Episode
+      episode_number: 5
+      watched: false
+    - !ruby/object:Episode
+      episode_number: 6
+      watched: false
+    - !ruby/object:Episode
+      episode_number: 7
+      watched: false
 - !ruby/object:Show
   show_name: Silicon Valley
   genre: Comedy
-  seasons: []
+  seasons:
+  - !ruby/object:Season
+    show: Silicon Valley
+    season_number: 1
+    episodes:
+    - !ruby/object:Episode
+      episode_number: 1
+      watched: true
+    - !ruby/object:Episode
+      episode_number: 2
+      watched: true
+    - !ruby/object:Episode
+      episode_number: 3
+      watched: true
+    - !ruby/object:Episode
+      episode_number: 4
+      watched: true
+    - !ruby/object:Episode
+      episode_number: 5
+      watched: false
+    - !ruby/object:Episode
+      episode_number: 6
+      watched: false
+    - !ruby/object:Episode
+      episode_number: 7
+      watched: false
+    - !ruby/object:Episode
+      episode_number: 8
+      watched: false
+  - !ruby/object:Season
+    show: Silicon Valley
+    season_number: 2
+    episodes: []
 - !ruby/object:Show
   show_name: Game of Thrones
   genre: Fantasy
@@ -46,4 +99,8 @@ shows:
 - !ruby/object:Show
   show_name: Mr Robot
   genre: Drama
+  seasons: []
+- !ruby/object:Show
+  show_name: The Good Place
+  genre: Comedy
   seasons: []
