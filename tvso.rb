@@ -3,10 +3,17 @@ require_relative 'classes/season-class'
 require_relative 'classes/show-class'
 require_relative 'classes/user-class'
 require_relative 'classes/menu-class'
+require 'yaml'
 
-bb_seasons = [Season.new('Breaking Bad', 1, [Episode.new('Breaking Bad', 1, 1), Episode.new('Breaking Bad', 1, 2)])]
-sv_seasons = [Season.new('Silicon Valley', 1, [Episode.new('Silicon Valley', 1, 1), Episode.new('Silicon Valley', 1, 2), Episode.new('Silicon Valley', 1, 3), Episode.new('Silicon Valley', 1, 4)])]
-user = User.new("Test", [Show.new('Silicon Valley', "Comedy", sv_seasons), Show.new("Breaking Bad", 'Drama', bb_seasons)])
+# bb_seasons = [Season.new('Breaking Bad', 1, [Episode.new('Breaking Bad', 1, 1), Episode.new('Breaking Bad', 1, 2)])]
+# sv_seasons = [Season.new('Silicon Valley', 1, [Episode.new('Silicon Valley', 1, 1), Episode.new('Silicon Valley', 1, 2), Episode.new('Silicon Valley', 1, 3), Episode.new('Silicon Valley', 1, 4)])]
+# user = User.new("Test", [Show.new('Silicon Valley', "Comedy", sv_seasons), Show.new("Breaking Bad", 'Drama', bb_seasons)])
+
+begin
+    user = YAML.load(File.read("data.yml"))
+rescue => exception
+    user = User.new("User 1", [])
+end
 
 def show_menu(main)
     system "clear"
@@ -85,6 +92,8 @@ end
 
 
 main = show_menu(Menu.new(user))
+
+File.open("data.yml", "w") { |file| file.write(user.to_yaml) }
 
 system "clear"
 puts "Thanks for using TV Show Organisor"

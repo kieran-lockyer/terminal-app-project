@@ -14,7 +14,13 @@ class Menu
     end
 
     def view_shows
-        @user.list_shows
+        if @user.shows.count > 0
+            @user.list_shows
+        else
+            puts
+            puts "No Shows Added"
+            puts
+        end
     end
 
     def select_show
@@ -48,7 +54,13 @@ class Menu
     end
 
     def view_episodes
-        @user.shows[@show_number].seasons[@season_number].list_episodes
+        if @user.shows[@show_number].seasons[@season_number].episodes.count > 0
+            @user.shows[@show_number].seasons[@season_number].list_episodes
+        else
+            puts
+            puts "No Episodes Added"
+            puts
+        end
     end
 
     def select_episode

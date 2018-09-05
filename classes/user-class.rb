@@ -12,8 +12,8 @@ class User
 
     def list_shows
         puts
-        for show in @shows
-            puts "#{show.show_name} - #{show.genre}"
+        @shows.count.times do |count|
+            puts "#{count + 1}. #{@shows[count].show_name} - #{@shows[count].genre}"
         end
         puts
     end

@@ -2,7 +2,7 @@ require_relative '../classes/episode-class'
 require_relative '../classes/season-class'
 
 class Show
-    attr_accessor :show_name, :genre, :season_number, :number_of_seasons, :seasons
+    attr_accessor :show_name, :genre, :seasons
 
     def initialize(show_name, genre, seasons = [])
         @show_name = show_name #The show_name of the show the episode belongs to
@@ -12,8 +12,6 @@ class Show
 
     def list_seasons
         puts "#{@show_name}"
-        puts
-        puts @seasons
         puts
         for season in @seasons
             print "Season Number: #{season.season_number} / #{season.episodes.count} Episodes "
@@ -29,7 +27,7 @@ class Show
     end
 
     def add_season
-        @seasons.push(Season.new(show_name, @seasons.count + 1, episodes = []))
+        @seasons.push(Season.new(@seasons.count + 1, episodes = []))
     end
 end
 

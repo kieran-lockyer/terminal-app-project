@@ -1,9 +1,9 @@
 class Episode
-    attr_accessor :show, :season_number, :episode_number, :watched
+    attr_accessor :episode_number, :watched
 
-    def initialize(show, season_number, episode_number, watched = false)
-        @show = show #the name of the show the episode belongs to
-        @season_number = season_number #Which season the episode belongs to
+    def initialize(episode_number, watched = false)
+        # @show = show #the name of the show the episode belongs to
+        # @season_number = season_number #Which season the episode belongs to
         @episode_number = episode_number #the number of the episode in the season
         @watched = watched #true if watched, false if not watched - will be set to false by default
     end
