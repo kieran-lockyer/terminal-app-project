@@ -30,5 +30,5 @@ https://rubygems.org/gems/espeak-ruby/versions/1.0.3
 Coming soon!
 
 ### Screenshots:
-![Show Menu](show-menu-screen.jpg)
+![Show Menu](https://github.com/kieran-lockyer/terminal-app-project/blob/master/ppt/show-menu-screen.jpg)
 
