@@ -46,3 +46,25 @@ The app was designed to take as little input as possible to navigate the menu. E
 
 ![Show Menu](https://github.com/kieran-lockyer/terminal-app-project/blob/master/ppt/episode-menu-screen.jpg)
 
+### User Stories
+
+![Show Menu](https://github.com/kieran-lockyer/terminal-app-project/blob/master/ppt/trello-progress-updated.jpg)
+
+### User Workflow
+
+![Show Menu](https://github.com/kieran-lockyer/terminal-app-project/blob/master/ppt/user-workflow.jpg)
+
+### Design Decisions
+- We decided to make Shows, Seasons and Episodes objects in order to have the code base more seperated into modules, and to make it easier to interact with and manipulate the data within the main ruby file.
+- We also added User classes to make the app more extensible in the future for adding multiple user features.
+- A menu class was added as a layer of abstraction in order to not be directly manipulating data outside the bounds of what is required for the app.
+
+### List of Tools Used
+- Visual Studio Code
+- GitHub
+- Ubuntu Terminal
+- Trello
+- Slack
+- Google Slides
+
+
