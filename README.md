@@ -3,15 +3,16 @@
 
 # TV Show Organisor (TVSO)
 
-### Description:
-TVSO is a terminal app that allows you to view and manage your progress through your favourite TV shows.
-
-### Purpose:
+### Problem Definition
 Have you ever felt the pain of coming back to a show from a long hiatus (maybe due to being a good student and swapping Game of Thrones for your History text book so you can ace your final exam) and not remembering where you left off? Have you spent 20 minutes watching an episode, only to realise you've already seen it? How did that make you feel? If you're anything like me, you might have given up on watching that series all together rather than dig through episode by episode to try and find the right place to pick up again.
 
-Well not anymore, now with TVSO you can easily keep track of all your favourite shows from one easy to use location. Simply load up TVSO, add the details of a show you want to track, and mark off each episode as you watch it.
+### Solution
+TVSO is a simple app that runs in the terminal that allows you to easily keep track of all your favourite shows from one easy to use location. Simply load up TVSO, add the details of a show you want to track, and mark off each episode as you watch it.
 
 Never waste your time unintentionally rewatching shows again.
+
+### Ethical Considerations
+We are not responsible for any shows obtained by illegal methods such as torrents or bootleg dvd's. If you enjoy the work, support the creators by paying for it.
 
 ### Features:
 - Add TV Shows you are currently watching
@@ -26,8 +27,11 @@ Espeak Ruby Gem
 This gem is required for TTS Accessibility functionality and must be required in tvsorb and menu-class.rb
 https://rubygems.org/gems/espeak-ruby/versions/1.0.3
 
-### Functionality:
-Coming soon!
+### Launching the App:
+Open up terminal and navigate to the directory that contains the terminal app files and type `ruby tvso.rb`
+
+### Using the App:
+The app was designed to take as little input as possible to navigate the menu. Each menu can be navigated by typing a number corresponding with the onscreen prompts. 
 
 ### Screenshots:
 ##### Show Menu
