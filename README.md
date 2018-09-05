@@ -15,12 +15,12 @@ Never waste your time unintentionally rewatching shows again.
 We are not responsible for any shows obtained by illegal methods such as torrents or bootleg dvd's. If you enjoy the work, support the creators by paying for it.
 
 ### Features:
-- Add TV Shows you are currently watching
+- Add TV shows you are currently watching
+- Add seasons to your shows
+- Add episodes to your seasons
 - View list of shows you have added
 - View list of seasons and episodes for each added TV Show
 - Mark a show as watched or not yet watched
-- Coming soon -- Show what the next episode is to watch in a series
-- Coming soon -- Automatically retrieve info about shows you add from IMDB/Wikipedia
 
 ### Prerequisites:
 Espeak Ruby Gem
@@ -67,4 +67,15 @@ The app was designed to take as little input as possible to navigate the menu. E
 - Slack
 - Google Slides
 
+### Bugs
+No known bugs at this time, please let us know if you find any.
+
+### Future Updates
+- Remove shows
+- Remove seasons
+- Remove Episodes
+- Multiple users with different shows
+- Show the next episode to watch in a series
+- Filter shows by genre
+- Automatically retrieve info about shows you add from IMDB/Wikipedia
 
