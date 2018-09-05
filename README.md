@@ -18,6 +18,9 @@ We are not responsible for any shows obtained by illegal methods such as torrent
 - Add TV shows you are currently watching
 - Add seasons to your shows
 - Add episodes to your seasons
+- Remove shows
+- Remove seasons
+- Remove episodes
 - View list of shows you have added
 - View list of seasons and episodes for each added TV Show
 - Mark a show as watched or not yet watched
@@ -71,9 +74,7 @@ The app was designed to take as little input as possible to navigate the menu. E
 No known bugs at this time, please let us know if you find any.
 
 ### Future Updates
-- Remove shows
-- Remove seasons
-- Remove Episodes
+- Rename Shows
 - Multiple users with different shows
 - Show the next episode to watch in a series
 - Filter shows by genre
