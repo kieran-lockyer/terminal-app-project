@@ -30,5 +30,5 @@ https://rubygems.org/gems/espeak-ruby/versions/1.0.3
 Coming soon!
 
 ### Screenshots:
-Coming soon!
+![Show Menu](show-menu-screen.jpg)
 
