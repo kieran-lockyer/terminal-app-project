@@ -71,7 +71,7 @@ The app was designed to take as little input as possible to navigate the menu. E
 - Google Slides
 
 ### Bugs
-- No known bugs at this time. If you find any, please let us know
+- If you enter a non-numeric for selecting seasons or episodes the app will crash.
 
 #### Fixed bugs:
 - -- FIXED!!! -- Crashes when user input for selecting shows, seasons or episodes is higher than the number of shows, seasons or episodes that have been added
