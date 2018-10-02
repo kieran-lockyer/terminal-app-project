@@ -31,6 +31,10 @@ class Season
     def remove_episode #removes the last episode from the episodes array
         @episodes.delete_at(@episodes.count - 1)
     end
+
+    def to_s
+        puts "#{@show} - Season: #{@season_number} - Episodes: #{@episodes.length}"
+    end
 end
 
 

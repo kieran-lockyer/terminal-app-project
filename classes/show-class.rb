@@ -33,5 +33,9 @@ class Show
     def remove_season #pops a season object off the end of the seasons array.
         @seasons.delete_at(@seasons.count - 1)
     end
+
+    def to_s
+        "#{@show_name} - Seasons: #{@seasons.length}"
+    end
 end
 

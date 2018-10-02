@@ -2,7 +2,8 @@ require_relative '../classes/episode-class'
 require_relative '../classes/season-class'
 require_relative '../classes/show-class'
 require_relative '../classes/user-class'
-require 'espeak'
+# require 'espeak'
+require_relative '../classes/scrape'
 
 class Menu
 
@@ -45,13 +46,33 @@ class Menu
         if @audio
             ESpeak::Speech.new("Please enter the name of the show you want to add: ").speak
         end
-        show_name = gets.chomp
+        show_name = gets.chomp.split(" ").map { |word| word.capitalize} * " "
+
         print "Please enter the genre of the show you want to add: "
         if @audio
             ESpeak::Speech.new("Please enter the genre of the show you want to add: ").speak
         end
         genre = gets.chomp
-        @user.add_show(show_name, genre)
+
+        show_data = ShowFetch.new(show_name)
+        show_data.scrape
+        
+        if show_data.seasons.length > 0
+            @show_number = -1
+            @season_number = -1
+            @episode_number = -1
+            @user.add_show(show_name, genre)
+            for season in show_data.seasons
+                if season > 0
+                    @user.shows[@show_number].add_season
+                    season.times do
+                        @user.shows[@show_number].seasons[@season_number].add_episode
+                    end
+                end
+            end
+        else
+            @user.add_show(show_name, genre)
+        end
         self
     end
 
@@ -68,10 +89,10 @@ class Menu
         else
             puts "#{@user.shows[@show_number].show_name}"
             puts
-            puts "No Seasons Added"
+            puts "Show data could not be found. Please add seasons and episodes manually."
             puts
             if @audio
-                ESpeak::Speech.new("No Seasons Added").speak
+                ESpeak::Speech.new("Show data could not be found. Please add seasons and episodes manually.").speak
             end
         end
     end

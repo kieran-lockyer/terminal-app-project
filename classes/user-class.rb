@@ -1,6 +1,7 @@
 require_relative '../classes/episode-class'
 require_relative '../classes/season-class'
 require_relative '../classes/show-class'
+require_relative '../classes/scrape'
 
 class User
     attr_accessor :shows, :name #both name and shows attr accessors required for setting and getting data.

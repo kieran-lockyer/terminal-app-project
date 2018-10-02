@@ -4,7 +4,7 @@ require_relative 'classes/show-class'
 require_relative 'classes/user-class'
 require_relative 'classes/menu-class'
 require 'yaml'
-require 'espeak'
+# require 'espeak'
 
 def show_menu(main, audio) # Menu to interface with shows. From here you can view shows, add shows or exit.
     show_menu = true # sets condition to loop show menu to true
@@ -151,22 +151,24 @@ end
 # a simple loop that allows you to select an audio guide for the app. Utilises the 'espeak' gem.
 system 'clear'
 puts "TV SHOW ORGANISER"
-while true
-    print "Do you require voice guidance? Please enter 'Y' for yes or 'N' for no: "
-    ESpeak::Speech.new("Do you require voice guidance? Please enter 'Y' for yes or 'N' for no.").speak
-    option = gets.chomp
-    case option
-    when 'Y', 'y'
-        audio = true
-        break
-    when 'N', 'n'
-        audio = false
-        break
-    else
-        puts "Invalid option"
-        ESpeak::Speech.new("Invalid option").speak
-    end
-end
+# while true
+#     print "Do you require voice guidance? Please enter 'Y' for yes or 'N' for no: "
+#     ESpeak::Speech.new("Do you require voice guidance? Please enter 'Y' for yes or 'N' for no.").speak
+#     option = gets.chomp
+#     case option
+#     when 'Y', 'y'
+#         audio = true
+#         break
+#     when 'N', 'n'
+#         audio = false
+#         break
+#     else
+#         puts "Invalid option"
+#         ESpeak::Speech.new("Invalid option").speak
+#     end
+# end
+
+audio = false # turned accessibility off while testing.
 
 # On launch, executes the 'Show Menu' function. As you switch menus, the program will 
 # jump to 'Season Menu' function or 'Episode Menu' function
