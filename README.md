@@ -24,6 +24,7 @@ We are not responsible for any shows obtained by illegal methods such as torrent
 - View list of shows you have added
 - View list of seasons and episodes for each added TV Show
 - Mark a show as watched or not yet watched
+- Automatically retrieve info about shows you add from Wikipedia
 
 ### Prerequisites:
 Espeak Ruby Gem
@@ -82,5 +83,3 @@ The app was designed to take as little input as possible to navigate the menu. E
 - Multiple users with different shows
 - Show the next episode to watch in a series
 - Filter shows by genre
-- Automatically retrieve info about shows you add from IMDB/Wikipedia
-
