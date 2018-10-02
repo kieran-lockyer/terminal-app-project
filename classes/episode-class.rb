@@ -15,4 +15,8 @@ class Episode
         @watched = false #sets the episode watched status to false
         puts "Show marked as unwatched"
     end
+
+    def to_s
+        puts "Episode: #{episode_number}"
+    end
 end
