@@ -46,7 +46,7 @@ class Menu
         if @audio
             ESpeak::Speech.new("Please enter the name of the show you want to add: ").speak
         end
-        show_name = gets.chomp.split(" ").map { |word| word.capitalize} * " "
+        show_name = gets.chomp
 
         print "Please enter the genre of the show you want to add: "
         if @audio
