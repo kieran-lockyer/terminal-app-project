@@ -86,10 +86,10 @@ class ShowFetch
                             @season_data = @data[1..@data.length - 1].map {|data| data.split("</td>")}
                             for season in @season_data
                                 episodes = 0
-                                if season[2][-2].is_number?
+                                if season[1][-2].is_number?
                                     episodes += season[2][-2].to_i * 10
                                 end
-                                if season[2][-1].is_number?
+                                if season[1][-1].is_number?
                                     episodes += season[2][-1].to_i
                                 end
                                 @seasons.push(episodes)
